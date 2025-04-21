@@ -2,6 +2,8 @@ package com.pluralsight;
 
 import java.util.Scanner;
 
+import static com.pluralsight.CellPhone.display;
+
 public class CellPhoneApplication {
     public static void main(String[] args) {
 
@@ -12,6 +14,7 @@ public class CellPhoneApplication {
         CellPhone phone = new CellPhone();
 
         //prompt the user
+
         System.out.println("What is the serial number? ");
         phone.setSerialNumber(sc.nextInt());            //using a setters
         sc.nextLine();
@@ -26,25 +29,25 @@ public class CellPhoneApplication {
         phone.setPhoneNumber(sc.nextLine());                //using a setters
 
         System.out.println("Who is the owner of the phone? ");
-        phone.setOwner(sc.nextLine());            //using a setters
+        phone.setOwner(sc.nextLine());//using a setters
 
-        //Using the getters of the CellPhone
 
-        System.out.println("\n Cell Phone Info:\n" +
-                "Serial Number: " + phone.getSerialNumber() + "\n" +
-                "Model: " + phone.getModel() + "\n" +
-                "Carrier: " + phone.getCarrier() + "\n" +
-                "Phone Number: " + phone.getPhoneNumber() + "\n" +
-                "Owner: " + phone.getOwner()
-        );
+        //Exercise3 new instance and calling settters
+
+        CellPhone phone2 = new CellPhone(1234567, "iPhone 16", "Verizon", "222-333-4444", "Mahmoud");
+
+        // calling display method
+
+        CellPhone.display(phone);
+        CellPhone.display(phone2);
+
+        // Call each other
+
+        phone.dial(phone.getPhoneNumber());
+        phone2.dial(phone2.getPhoneNumber());
+
     }
+
+
 }
-
-
-
-
-
-
-
-
 
